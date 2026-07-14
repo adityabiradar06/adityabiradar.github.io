@@ -1,489 +1,701 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aditya Biradar | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    :root {
-      --white: #ffffff;
-      --off-white: #f8f9fb;
-      --light-gray: #f0f2f5;
-      --border: #e4e7ec;
-      --text-dark: #111827;
-      --text-mid: #374151;
-      --text-soft: #6b7280;
-      --accent: #2563eb;
-      --accent-light: #eff6ff;
-      --accent-hover: #1d4ed8;
-      --green: #10b981;
-    }
+<title>Aditya Biradar | Software Developer</title>
 
-    html { scroll-behavior: smooth; }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--white);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
+<style>
 
-    /* NAV */
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-    }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--text-dark);
-      text-decoration: none;
-      letter-spacing: -0.5px;
-    }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-soft);
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
 
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 100px 2rem 4rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .hero-content { max-width: 680px; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent-light);
-      color: var(--accent);
-      padding: 6px 14px;
-      border-radius: 100px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.3px;
-    }
-    .hero-badge::before {
-      content: '';
-      width: 7px; height: 7px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      line-height: 1.15;
-      color: var(--text-dark);
-      margin-bottom: 1rem;
-      letter-spacing: -1px;
-    }
-    .hero h1 span { color: var(--accent); }
-    .hero-sub {
-      font-size: 1.1rem;
-      color: var(--text-soft);
-      margin-bottom: 2rem;
-      font-weight: 400;
-      max-width: 520px;
-    }
-    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      padding: 12px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: background 0.2s, transform 0.15s;
-      display: inline-block;
-    }
-    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
-    .btn-secondary {
-      background: transparent;
-      color: var(--text-dark);
-      padding: 12px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1.5px solid var(--border);
-      transition: border-color 0.2s, transform 0.15s;
-      display: inline-block;
-    }
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+body{
+background:#f8faff;
+color:#111;
+}
 
-    /* SECTIONS */
-    section { padding: 5rem 2rem; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      color: var(--text-dark);
-      margin-bottom: 1rem;
-      letter-spacing: -0.5px;
-    }
-    .section-desc {
-      color: var(--text-soft);
-      font-size: 1rem;
-      max-width: 520px;
-      margin-bottom: 3rem;
-    }
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:white;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+z-index:1000;
+}
 
-    /* ABOUT */
-    .about-bg { background: var(--off-white); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .about-avatar {
-      width: 280px; height: 280px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, var(--accent-light), #dbeafe);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 6rem;
-      box-shadow: 0 20px 40px rgba(37,99,235,0.12);
-    }
-    .about-text p {
-      color: var(--text-mid);
-      margin-bottom: 1rem;
-      font-size: 0.97rem;
-    }
-    .about-stats {
-      display: flex; gap: 2rem;
-      margin-top: 2rem;
-    }
-    .stat { text-align: center; }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: var(--accent);
-      font-weight: 700;
-    }
-    .stat-label { font-size: 0.8rem; color: var(--text-soft); margin-top: 2px; }
+.logo{
+font-size:28px;
+font-weight:700;
+color:#2563eb;
+text-decoration:none;
+}
 
-    /* SKILLS */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 1rem;
-    }
-    .skill-card {
-      background: var(--off-white);
-      border: 1.5px solid var(--border);
-      border-radius: 12px;
-      padding: 1.2rem 1rem;
-      text-align: center;
-      transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
-      cursor: default;
-    }
-    .skill-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(37,99,235,0.08);
-    }
-    .skill-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
-    .skill-name { font-size: 0.85rem; font-weight: 600; color: var(--text-mid); }
+nav ul{
+display:flex;
+gap:35px;
+list-style:none;
+}
 
-    /* PROJECTS */
-    .projects-bg { background: var(--off-white); }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-    .project-card {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 16px;
-      padding: 1.8rem;
-      transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
-    }
-    .project-card:hover {
-      box-shadow: 0 12px 32px rgba(37,99,235,0.1);
-      transform: translateY(-4px);
-      border-color: var(--accent);
-    }
-    .project-emoji { font-size: 2rem; margin-bottom: 1rem; }
-    .project-tag {
-      display: inline-block;
-      background: var(--accent-light);
-      color: var(--accent);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 100px;
-      margin-bottom: 0.8rem;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-    .project-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 0.5rem;
-    }
-    .project-card p {
-      font-size: 0.88rem;
-      color: var(--text-soft);
-      margin-bottom: 1.2rem;
-      line-height: 1.6;
-    }
-    .project-techs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .tech-pill {
-      background: var(--light-gray);
-      color: var(--text-mid);
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 6px;
-    }
+nav ul li a{
+text-decoration:none;
+color:#444;
+font-weight:500;
+transition:.3s;
+}
 
-    /* CONTACT */
-    .contact-card {
-      background: var(--text-dark);
-      border-radius: 24px;
-      padding: 4rem;
-      text-align: center;
-      color: white;
-    }
-    .contact-card .section-label { color: #60a5fa; }
-    .contact-card .section-title { color: white; margin: 0 auto 1rem; }
-    .contact-card p { color: #9ca3af; margin-bottom: 2rem; }
-    .contact-links {
-      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .contact-link {
-      display: flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.08);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      border: 1px solid rgba(255,255,255,0.12);
-      transition: background 0.2s;
-    }
-    .contact-link:hover { background: rgba(255,255,255,0.15); }
+nav ul li a:hover{
+color:#2563eb;
+}
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid var(--border);
-      color: var(--text-soft);
-      font-size: 0.85rem;
-    }
+.hero{
 
-    /* SCROLL REVEAL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+min-height:100vh;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:120px 8% 60px;
+gap:60px;
 
-    @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .about-avatar { width: 200px; height: 200px; font-size: 4rem; }
-      .contact-card { padding: 2rem 1.5rem; }
-      .nav-links { display: none; }
-    }
-  </style>
+}
+
+.hero-text{
+flex:1;
+}
+
+.hero-text span{
+color:#2563eb;
+font-weight:700;
+}
+
+.hero-text h1{
+
+font-size:60px;
+line-height:1.2;
+margin:20px 0;
+
+}
+
+.hero-text h2{
+
+font-size:28px;
+color:#2563eb;
+margin-bottom:20px;
+
+}
+
+.hero-text p{
+
+font-size:18px;
+line-height:1.8;
+color:#555;
+max-width:600px;
+
+}
+
+.buttons{
+
+margin-top:40px;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+padding:14px 30px;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+
+}
+
+.primary{
+
+background:#2563eb;
+color:white;
+
+}
+
+.primary:hover{
+
+background:#1d4ed8;
+
+}
+
+.secondary{
+
+border:2px solid #2563eb;
+color:#2563eb;
+
+}
+
+.secondary:hover{
+
+background:#2563eb;
+color:white;
+
+}
+
+.hero-image{
+
+flex:1;
+display:flex;
+justify-content:center;
+
+}
+
+.hero-image img{
+
+width:370px;
+height:370px;
+object-fit:cover;
+border-radius:30px;
+box-shadow:0 30px 60px rgba(37,99,235,.25);
+
+}
+
+.tech{
+
+margin-top:40px;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+
+}
+
+.tech span{
+
+background:white;
+padding:10px 18px;
+border-radius:30px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+font-size:14px;
+font-weight:600;
+
+}
+
+@media(max-width:900px){
+
+.hero{
+
+flex-direction:column-reverse;
+text-align:center;
+
+}
+
+.hero-text h1{
+
+font-size:42px;
+
+}
+
+.hero-image img{
+
+width:280px;
+height:280px;
+
+}
+
+nav ul{
+
+display:none;
+
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#" class="nav-logo">Aditya<span>.</span></a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content reveal">
-      <div class="hero-badge">Available for Internships & Projects</div>
-      <h1>Hi, I'm <span>Aditya Biradar</span> 👋</h1>
-      <p class="hero-sub">
-        A passionate Computer Science student building clean, modern web experiences.
-        Currently in my 2nd year of CSE — learning, building, and growing every day.
-      </p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn-primary">View My Work</a>
-        <a href="#contact" class="btn-secondary">Get In Touch</a>
-      </div>
-    </div>
-  </section>
+<a href="#" class="logo">Aditya.</a>
 
-  <!-- ABOUT -->
-  <section class="about-bg" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="reveal">
-          <div class="about-avatar">👨‍💻</div>
-        </div>
-        <div class="reveal">
-          <p class="section-label">About Me</p>
-          <h2 class="section-title">Who am I?</h2>
-          <p>I'm Aditya Biradar, a 2nd year Computer Science Engineering student with a strong passion for web development. I love turning ideas into real, working websites.</p>
-          <p>I'm on a mission to land a high-package placement by 3rd year through consistent learning, building projects, and solving real problems with code.</p>
-          <p>When I'm not coding, I'm learning something new about tech, exploring new frameworks, or working on personal projects.</p>
-          <div class="about-stats">
-            <div class="stat">
-              <div class="stat-num">2+</div>
-              <div class="stat-label">Projects Built</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num">2nd</div>
-              <div class="stat-label">Year CSE</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num">∞</div>
-              <div class="stat-label">Curiosity</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<ul>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="container">
-      <div class="reveal">
-        <p class="section-label">What I Know</p>
-        <h2 class="section-title">My Skills</h2>
-        <p class="section-desc">Technologies I've been learning and working with as a web developer.</p>
-      </div>
-      <div class="skills-grid reveal">
-        <div class="skill-card"><div class="skill-icon">🌐</div><div class="skill-name">HTML5</div></div>
-        <div class="skill-card"><div class="skill-icon">🎨</div><div class="skill-name">CSS3</div></div>
-        <div class="skill-card"><div class="skill-icon">⚡</div><div class="skill-name">JavaScript</div></div>
-        <div class="skill-card"><div class="skill-icon">⚛️</div><div class="skill-name">React</div></div>
-        <div class="skill-card"><div class="skill-icon">🗄️</div><div class="skill-name">SQL</div></div>
-        <div class="skill-card"><div class="skill-icon">🐙</div><div class="skill-name">Git & GitHub</div></div>
-        <div class="skill-card"><div class="skill-icon">💻</div><div class="skill-name">C++</div></div>
-        <div class="skill-card"><div class="skill-icon">🔧</div><div class="skill-name">VS Code</div></div>
-      </div>
-    </div>
-  </section>
+<li><a href="#about">About</a></li>
 
-  <!-- PROJECTS -->
-  <section class="projects-bg" id="projects">
-    <div class="container">
-      <div class="reveal">
-        <p class="section-label">What I've Built</p>
-        <h2 class="section-title">My Projects</h2>
-        <p class="section-desc">A collection of projects I've built while learning web development.</p>
-      </div>
-      <div class="projects-grid reveal">
-        <div class="project-card">
-          <div class="project-emoji">🌐</div>
-          <span class="project-tag">Web Dev</span>
-          <h3>Personal Portfolio</h3>
-          <p>A clean, responsive portfolio website to showcase my skills, projects and contact info. Built from scratch using only HTML and CSS.</p>
-          <div class="project-techs">
-            <span class="tech-pill">HTML</span>
-            <span class="tech-pill">CSS</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-emoji">📋</div>
-          <span class="project-tag">JavaScript</span>
-          <h3>To-Do List App</h3>
-          <p>A functional task management app with add, delete, and complete features. My first JavaScript project with DOM manipulation.</p>
-          <div class="project-techs">
-            <span class="tech-pill">HTML</span>
-            <span class="tech-pill">CSS</span>
-            <span class="tech-pill">JavaScript</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-emoji">🧮</div>
-          <span class="project-tag">JavaScript</span>
-          <h3>Calculator App</h3>
-          <p>A fully working calculator with all basic operations. Clean UI and keyboard support. Great for practicing JS logic and events.</p>
-          <div class="project-techs">
-            <span class="tech-pill">HTML</span>
-            <span class="tech-pill">CSS</span>
-            <span class="tech-pill">JavaScript</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<li><a href="#skills">Skills</a></li>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-card reveal">
-        <p class="section-label">Get In Touch</p>
-        <h2 class="section-title">Let's Connect!</h2>
-        <p>I'm open to internships, collaborations, and learning opportunities. Feel free to reach out!</p>
-        <a href="mailto:adityabiradar351@email.com" class="btn-primary">✉️ Send Me an Email</a>
-        <div class="contact-links">
-          <a href="https://github.com/adityabiradar06" target="_blank" class="contact-link">🐙 GitHub</a>
-          <a href="https://www.linkedin.com/in/aditya-biradar-6285b8398?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="contact-link">💼 LinkedIn</a>
-          <a href="https://x.com/BiradarAdi26719" target="_blank" class="contact-link">🐦 Twitter</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<li><a href="#projects">Projects</a></li>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>Designed & Built by <strong>Aditya Biradar</strong> · 2024 · Made with ❤️ and lots of ☕</p>
-  </footer>
+<li><a href="#contact">Contact</a></li>
 
-  <script>
-    // Scroll reveal animation
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
-  </script>
+</ul>
 
-</body>
-</html>
+</nav>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h2 id="typing"></h2>
+
+<h1>
+Hi, I'm <span>Aditya Biradar</span>
+</h1>
+
+<p>
+
+Passionate Computer Science Engineering student focused on building modern web applications, exploring Artificial Intelligence, and creating innovative digital solutions through continuous learning and real-world projects.
+
+</p>
+
+<div class="buttons">
+
+<a href="#projects" class="btn primary">
+View Projects
+</a>
+
+<a href="#contact" class="btn secondary">
+Contact Me
+</a>
+
+</div>
+
+<div class="tech">
+
+<span>HTML</span>
+
+<span>CSS</span>
+
+<span>JavaScript</span>
+
+<span>GitHub</span>
+
+<span>AI</span>
+
+<span>Web Development</span>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img src="images/profile.jpg" alt="Aditya Biradar">
+
+</div>
+
+</section>
+
+<script>
+
+const words=[
+"Computer Science Student",
+"Web Developer",
+"AI Enthusiast",
+"Problem Solver"
+];
+
+let i=0;
+
+setInterval(()=>{
+
+document.getElementById("typing").innerHTML=words[i];
+
+i=(i+1)%words.length;
+
+},1800);
+
+</script>
+<!-- ================= ABOUT ================= -->
+
+<section id="about" style="padding:100px 8%;background:#ffffff;">
+
+<div style="max-width:1100px;margin:auto;">
+
+<h4 style="color:#2563eb;font-size:18px;">ABOUT ME</h4>
+
+<h2 style="font-size:42px;margin:10px 0 40px;">Who Am I?</h2>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+
+<div>
+
+<img src="images/profile.jpg"
+style="width:100%;max-width:420px;border-radius:25px;
+box-shadow:0 20px 40px rgba(0,0,0,.15);">
+
+</div>
+
+<div>
+
+<p style="font-size:18px;line-height:1.8;color:#555;">
+
+Hello! I'm <b>Aditya Biradar</b>, a passionate 2nd Year Computer Science Engineering student at NK Orchid College of Engineering & Technology, Solapur.
+
+</p>
+
+<br>
+
+<p style="font-size:18px;line-height:1.8;color:#555;">
+
+I enjoy building responsive websites, learning modern technologies, and solving real-world problems through software. Every project I create helps me improve my skills and grow as a developer.
+
+</p>
+
+<br>
+
+<p style="font-size:18px;line-height:1.8;color:#555;">
+
+My goal is to become a skilled Software Engineer by continuously learning, building impactful applications, and contributing to innovative technology.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= STATS ================= -->
+
+<section style="padding:70px 8%;background:#f8faff;">
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;max-width:1100px;margin:auto;">
+
+<div style="background:white;padding:35px;border-radius:20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.08);">
+<h1 style="color:#2563eb;font-size:50px;">10+</h1>
+<p>Projects Completed</p>
+</div>
+
+<div style="background:white;padding:35px;border-radius:20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.08);">
+<h1 style="color:#2563eb;font-size:50px;">8+</h1>
+<p>Technologies Learned</p>
+</div>
+
+<div style="background:white;padding:35px;border-radius:20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.08);">
+<h1 style="color:#2563eb;font-size:50px;">2nd</h1>
+<p>Year CSE Student</p>
+</div>
+
+<div style="background:white;padding:35px;border-radius:20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.08);">
+<h1 style="color:#2563eb;font-size:50px;">100%</h1>
+<p>Learning Mindset</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= EDUCATION ================= -->
+
+<section style="padding:100px 8%;background:white;">
+
+<div style="max-width:1100px;margin:auto;">
+
+<h4 style="color:#2563eb;">EDUCATION</h4>
+
+<h2 style="font-size:40px;margin-bottom:40px;">Academic Journey</h2>
+
+<div style="background:#f8faff;padding:35px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,.08);">
+
+<h3>B.Tech in Computer Science Engineering</h3>
+
+<p style="margin-top:10px;color:#666;">
+
+NK Orchid College of Engineering & Technology, Solapur
+
+</p>
+
+<p style="margin-top:10px;color:#666;">
+
+Currently pursuing Second Year with a focus on Web Development, Programming, Artificial Intelligence, and Software Engineering.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CURRENTLY LEARNING ================= -->
+
+<section style="padding:100px 8%;background:#f8faff;">
+
+<div style="max-width:1100px;margin:auto;">
+
+<h4 style="color:#2563eb;">CURRENTLY LEARNING</h4>
+
+<h2 style="font-size:40px;margin-bottom:40px;">Growing Every Day</h2>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;">
+
+<div class="learn">🌐 HTML & CSS</div>
+
+<div class="learn">⚡ JavaScript</div>
+
+<div class="learn">⚛ React.js</div>
+
+<div class="learn">🤖 Artificial Intelligence</div>
+
+<div class="learn">☁ Cloud Computing</div>
+
+<div class="learn">🧠 Data Structures</div>
+
+<div class="learn">🐙 Git & GitHub</div>
+
+<div class="learn">🚀 Full Stack Development</div>
+
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+.learn{
+
+background:white;
+
+padding:30px;
+
+border-radius:18px;
+
+font-size:20px;
+
+font-weight:600;
+
+text-align:center;
+
+transition:.3s;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.learn:hover{
+
+transform:translateY(-8px);
+
+background:#2563eb;
+
+color:white;
+
+}
+
+</style>
+<!-- ================= SKILLS ================= -->
+
+<section id="skills" style="padding:100px 8%;background:#fff;">
+
+<div style="max-width:1100px;margin:auto;">
+
+<h4 style="color:#2563eb;">MY SKILLS</h4>
+
+<h2 style="font-size:40px;margin-bottom:40px;">Technical Skills</h2>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;">
+
+<div class="card">🌐 HTML5</div>
+<div class="card">🎨 CSS3</div>
+<div class="card">⚡ JavaScript</div>
+<div class="card">💻 C Programming</div>
+<div class="card">🗄 SQL</div>
+<div class="card">🐙 Git & GitHub</div>
+<div class="card">🔧 VS Code</div>
+<div class="card">🤖 AI Fundamentals</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects" style="padding:100px 8%;background:#f8faff;">
+
+<div style="max-width:1100px;margin:auto;">
+
+<h4 style="color:#2563eb;">PROJECTS</h4>
+
+<h2 style="font-size:40px;margin-bottom:40px;">Featured Projects</h2>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;">
+
+<div class="project">
+
+<h3>🌐 Personal Portfolio</h3>
+
+<p>
+A responsive portfolio showcasing my skills, projects and achievements.
+</p>
+
+<span>HTML • CSS • JavaScript</span>
+
+</div>
+
+<div class="project">
+
+<h3>📋 Student Helper Website</h3>
+
+<p>
+A platform designed to help students with notes, resources and academic updates.
+</p>
+
+<span>HTML • CSS • JavaScript</span>
+
+</div>
+
+<div class="project">
+
+<h3>🤖 AI College Assistant (In Progress)</h3>
+
+<p>
+Developing an AI-powered assistant to help students with notes, attendance, schedules and academic support.
+</p>
+
+<span>AI • JavaScript • Web Development</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" style="padding:100px 8%;background:#fff;">
+
+<div style="max-width:800px;margin:auto;text-align:center;">
+
+<h4 style="color:#2563eb;">CONTACT</h4>
+
+<h2 style="font-size:42px;">Let's Connect</h2>
+
+<p style="margin:20px 0;color:#666;font-size:18px;">
+I'm always open to internships, collaborations and exciting opportunities.
+</p>
+
+<div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:40px;">
+
+<a class="btn primary" href="https://github.com/adityabiradar06" target="_blank">GitHub</a>
+
+<a class="btn secondary" href="https://www.linkedin.com/in/aditya-biradar-6285b8398" target="_blank">LinkedIn</a>
+
+<a class="btn secondary" href="https://x.com/BiradarAdi26719" target="_blank">X (Twitter)</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer style="padding:40px;background:#111;color:white;text-align:center;">
+
+<h3>Aditya Biradar</h3>
+
+<p style="margin-top:10px;color:#aaa;">
+Building the future, one line of code at a time.
+</p>
+
+<p style="margin-top:20px;color:#666;">
+© 2026 All Rights Reserved
+</p>
+
+</footer>
+
+<style>
+
+.card{
+
+background:#fff;
+
+padding:30px;
+
+border-radius:20px;
+
+text-align:center;
+
+font-size:22px;
+
+font-weight:600;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+background:#2563eb;
+
+color:#fff;
+
+}
+
+.project{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.project:hover{
+
+transform:translateY(-10px);
+
+}
+
+.project h3{
+
+margin-bottom:15px;
+
+}
+
+.project p{
+
+color:#666;
+
+line-height:1.8;
+
+margin-bottom:20px;
+
+}
+
+.project span{
+
+color:#2563eb;
+
+font-weight:600;
+
+}
+
+</style>
